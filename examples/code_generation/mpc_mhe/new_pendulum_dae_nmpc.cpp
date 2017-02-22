@@ -27,7 +27,7 @@
 
 USING_NAMESPACE_ACADO
 
-int main(int argc, char * const argv[ ])
+int main()
 {
 	//
 	// Variables
@@ -107,9 +107,11 @@ int main(int argc, char * const argv[ ])
 	mpc.set(INTEGRATOR_TYPE, INT_IRK_RIIA3);
 	mpc.set(NUM_INTEGRATOR_STEPS, N * Ni);
 
-	mpc.set(SPARSE_QP_SOLUTION, FULL_CONDENSING);
+	mpc.set(SPARSE_QP_SOLUTION, BLOCK_CONDENSING_N2);
+	mpc.set(QP_SOLVER, QP_QPDUNES);
+//	mpc.set(SPARSE_QP_SOLUTION, FULL_CONDENSING);
 //	mpc.set(SPARSE_QP_SOLUTION, CONDENSING);
-	mpc.set(QP_SOLVER, QP_QPOASES);
+//	mpc.set(QP_SOLVER, QP_QPOASES);
 //	mpc.set(MAX_NUM_QP_ITERATIONS, 20);
 	mpc.set(HOTSTART_QP, YES);
 
